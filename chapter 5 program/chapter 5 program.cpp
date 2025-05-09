@@ -2,19 +2,58 @@
 //
 
 #include <iostream>
+#include <iomanip>
+
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    int organism =0;
+    double DailyIncrease;
+    int days = 0;
+
+    cout << " Enter the starting number of organism (minimum 2 days) \n";
+    cin >> organism;
+
+    while (organism < 2) {
+
+        cout << "invalid: Error ' starting organism must be at least 2. \n ";
+        cout << " Start again \n ";
+        cin >> organism;
+
+    }
+   
+    cout << " Enter the number of days the organism will multiply \n ";
+
+    cin >> days;
+
+    while (days < 1) {
+
+
+        cout << " Invalid input: Number of days must be at least 1. \n "; 
+        cout << " Enter the number of days \n ";
+
+        cin >> days;
+
+       
+
+     }
+
+
+    cout << " \nDay \tPopulation \n ";
+    cout << "---------------------------- \n";
+
+
+    double population = static_cast <double> (organism);
+
+
+        for (int day = 1; day <= days; ++day ) {
+
+            cout << day << " \t " << fixed << setprecision(2) << population << endl;
+            population += population * (organism / 100.0);
+
+        
+        }
+        return 0;
+
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
